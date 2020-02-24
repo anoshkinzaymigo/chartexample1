@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <chartist type="Line" :data="data" :options="options"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    data() {
+      return {
+          data: {
+              labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+              series: [
+                  [12, 9, 7, 8, 5],
+                  [2, 1, 3.5, 7, 3],
+                  [1, 3, 4, 5, 6]
+              ]
+          },
+          options: {
+              fullWidth: true,
+              chartPadding: {
+                  right: 40
+              }
+          }
+      }
+    }
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
